@@ -1,0 +1,35 @@
+.product-buttons{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.cart-btn,
+.buy-btn{
+    flex:1;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.cart-btn{
+    background:#2e7d32;
+    color:white;
+}
+
+.cart-btn:hover{
+    background:#1b5e20;
+}
+
+.buy-btn{
+    background:#ff9800;
+    color:white;
+}
+
+.buy-btn:hover{
+    background:#ef6c00;
+}

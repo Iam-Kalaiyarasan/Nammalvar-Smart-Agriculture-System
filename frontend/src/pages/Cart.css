@@ -1,0 +1,33 @@
+.cart-container{
+    width:90%;
+    max-width:900px;
+    margin:40px auto;
+}
+
+.cart-card{
+    display:flex;
+    gap:20px;
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.cart-card img{
+    width:180px;
+    height:140px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.checkout-btn{
+    width:100%;
+    padding:15px;
+    background:#2e7d32;
+    color:white;
+    font-size:18px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
