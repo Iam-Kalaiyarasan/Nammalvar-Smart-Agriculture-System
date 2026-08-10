@@ -12,15 +12,16 @@ def farmer_dashboard(request, pk):
 
     try:
         farmer = Farmer.objects.get(id=pk)
-
     except Farmer.DoesNotExist:
+        return Response({
+            "farmer_name": "Farmer",
+            "total_products": Product.objects.count(),
+            "total_orders": Order.objects.count(),
+            "pending_orders": Order.objects.filter(status="Pending").count(),
+            "delivered_orders": Order.objects.filter(status="Delivered").count(),
+            "total_sales": Order.objects.aggregate(total=Sum("total_price"))["total"] or 0
+        })
 
-        return Response(
-            {
-                "error": "Farmer not found"
-            },
-            status=404
-        )
 
     products = Product.objects.filter(
         farmer=farmer

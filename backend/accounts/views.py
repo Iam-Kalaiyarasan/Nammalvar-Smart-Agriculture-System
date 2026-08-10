@@ -7,11 +7,23 @@ from .serializers import FarmerSerializer, CustomerSerializer
 @api_view(["POST"])
 def farmer_register(request):
 
-    serializer = FarmerSerializer(data=request.data)
+    data = request.data.copy()
+    if "name" in data and "full_name" not in data:
+        data["full_name"] = data["name"]
+    if "phone" not in data or not data["phone"]:
+        data["phone"] = "N/A"
+    if "address" not in data or not data["address"]:
+        data["address"] = "N/A"
+
+    serializer = FarmerSerializer(data=data)
 
     if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data)
+        farmer = serializer.save()
+        return Response({
+            "message": "Registration Successful",
+            "id": farmer.id,
+            "name": farmer.full_name
+        }, status=201)
 
     return Response(serializer.errors, status=400)
 
@@ -19,13 +31,26 @@ def farmer_register(request):
 @api_view(["POST"])
 def customer_register(request):
 
-    serializer = CustomerSerializer(data=request.data)
+    data = request.data.copy()
+    if "name" in data and "full_name" not in data:
+        data["full_name"] = data["name"]
+    if "phone" not in data or not data["phone"]:
+        data["phone"] = "N/A"
+    if "address" not in data or not data["address"]:
+        data["address"] = "N/A"
+
+    serializer = CustomerSerializer(data=data)
 
     if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data)
+        customer = serializer.save()
+        return Response({
+            "message": "Registration Successful",
+            "id": customer.id,
+            "name": customer.full_name
+        }, status=201)
 
     return Response(serializer.errors, status=400)
+
 
 
 @api_view(["POST"])

@@ -6,11 +6,21 @@ class FarmerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Farmer
-        exclude = ["password"]
+        fields = "__all__"
+        extra_kwargs = {
+            "password": {"write_only": True},
+            "phone": {"required": False, "allow_blank": True},
+            "address": {"required": False, "allow_blank": True},
+        }
 
 
 class CustomerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Customer
-        exclude = ["password"]
+        fields = "__all__"
+        extra_kwargs = {
+            "password": {"write_only": True},
+            "phone": {"required": False, "allow_blank": True},
+            "address": {"required": False, "allow_blank": True},
+        }

@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../firebase";
+import axios from "axios";
+
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
 function TrackOrders() {
 
   const [orders, setOrders] = useState([]);
+  const customerId = 1; // Default logged-in customer ID
 
   useEffect(() => {
     loadOrders();
@@ -14,21 +16,15 @@ function TrackOrders() {
 
     try {
 
-      const querySnapshot = await getDocs(
-        collection(db, "orders")
+      const response = await axios.get(
+        `${API_BASE_URL}/api/orders/customer/${customerId}/`
       );
 
-      const orderList = querySnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      }));
-
-      setOrders(orderList);
+      setOrders(response.data);
 
     } catch (error) {
 
-      console.log(error);
-      alert(error.message);
+      console.error(error);
 
     }
 
@@ -44,35 +40,35 @@ function TrackOrders() {
 
         orders.length === 0 ?
 
-        <h3>No Orders Found</h3>
+          <h3>No Orders Found</h3>
 
-        :
+          :
 
-        orders.map(order => (
+          orders.map(order => (
 
-          <div
-            key={order.id}
-            style={{
-              border: "1px solid gray",
-              padding: "15px",
-              marginBottom: "15px",
-              width: "400px"
-            }}
-          >
+            <div
+              key={order.id}
+              style={{
+                border: "1px solid gray",
+                padding: "15px",
+                marginBottom: "15px",
+                width: "400px"
+              }}
+            >
 
-            <h2>{order.productName}</h2>
+              <h2>{order.product_details?.crop_name || `Order #${order.id}`}</h2>
 
-            <p>Customer : {order.customerName}</p>
+              <p>Customer ID: {order.customer}</p>
 
-            <p>Price : ₹{order.price}</p>
+              <p>Price: ₹{order.total_price}</p>
 
-            <p>Quantity : {order.quantity}</p>
+              <p>Quantity: {order.quantity}</p>
 
-            <h3>Status : {order.status}</h3>
+              <h3>Status: {order.status}</h3>
 
-          </div>
+            </div>
 
-        ))
+          ))
 
       }
 
@@ -82,4 +78,4 @@ function TrackOrders() {
 
 }
 
-export default TrackOrders;
+export default TrackOrders;

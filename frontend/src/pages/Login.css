@@ -1,165 +1,221 @@
-.login-container{
-
-    display:flex;
-
-    min-height:100vh;
-
+.login-container {
+    display: flex;
+    min-height: calc(100vh - 72px);
+    background: #f8faf8;
 }
 
-.left-panel{
-
-    flex:1;
-
-    background:#2E7D32;
-
-    color:white;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:50px;
-
+.left-panel {
+    flex: 1.1;
+    background: var(--bg-gradient);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+    position: relative;
+    overflow: hidden;
 }
 
-.left-panel h1{
-
-    font-size:55px;
-
-    margin-bottom:20px;
-
+.left-panel::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
 }
 
-.left-panel h2{
-
-    margin-bottom:20px;
-
+.left-hero-content {
+    max-width: 520px;
+    z-index: 2;
 }
 
-.left-panel p{
-
-    text-align:center;
-
-    line-height:1.8;
-
+.hero-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #6ee7b7;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
 }
 
-.right-panel{
-
-    flex:1;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:#F5F5F5;
-
+.left-panel h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #ffffff 0%, #a7f3d0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.login-form{
-
-    width:400px;
-
-    background:white;
-
-    padding:40px;
-
-    border-radius:12px;
-
-    box-shadow:0 5px 15px rgba(0,0,0,.2);
-
+.left-panel h2 {
+    font-size: 1.4rem;
+    color: #6ee7b7;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
 }
 
-.login-form h2{
-
-    text-align:center;
-
-    margin-bottom:25px;
-
+.left-panel p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #cbd5e1;
+    margin-bottom: 2rem;
 }
 
-.login-form input{
-
-    width:100%;
-
-    padding:12px;
-
-    margin-bottom:20px;
-
-    border-radius:8px;
-
-    border:1px solid #ccc;
-
+.hero-features-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
 }
 
-.login-form button{
-
-    width:100%;
-
-    background:#2E7D32;
-
-    color:white;
-
-    padding:12px;
-
-    border:none;
-
-    border-radius:8px;
-
-    cursor:pointer;
-
-    font-size:18px;
-
+.hero-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    color: #e2e8f0;
 }
 
-.login-form button:hover{
-
-    background:#1B5E20;
-
+.right-panel {
+    flex: 0.9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 2rem;
+    background: #f8faf8;
 }
 
-.login-form p{
-
-    margin-top:20px;
-
-    text-align:center;
-
+.login-card-box {
+    width: 100%;
+    max-width: 440px;
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.12);
 }
 
-.login-form a{
-
-    color:#2E7D32;
-
-    text-decoration:none;
-
-    font-weight:bold;
-
+.login-header-box {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
-@media(max-width:768px){
-
-.login-container{
-
-flex-direction:column;
-
+.login-header-box h2 {
+    font-size: 1.8rem;
+    color: var(--primary-dark);
+    margin-bottom: 6px;
 }
 
-.left-panel{
-
-padding:40px;
-
+.login-header-box p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
 }
 
-.login-form{
-
-width:90%;
-
+.role-tabs {
+    display: flex;
+    background: #f1f5f9;
+    padding: 4px;
+    border-radius: var(--radius-md);
+    margin-bottom: 1.5rem;
 }
 
+.role-tab-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    border-radius: var(--radius-sm);
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.role-tab-btn.active {
+
+    background: white;
+    color: var(--primary-dark);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.input-field-group {
+    margin-bottom: 1.2rem;
+}
+
+.input-field-group label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 6px;
+}
+
+.input-field-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    border: 1.5px solid #e2e8f0;
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+    outline: none;
+}
+
+.input-field-group input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+}
+
+.btn-submit-auth {
+    width: 100%;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+    margin-top: 0.5rem;
+}
+
+.btn-submit-auth:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.auth-footer-text {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.auth-footer-text a {
+    color: var(--primary);
+    font-weight: 700;
+    margin-left: 5px;
+}
+
+@media (max-width: 900px) {
+    .login-container {
+        flex-direction: column;
+    }
+    .left-panel {
+        padding: 2.5rem 1.5rem;
+    }
 }
