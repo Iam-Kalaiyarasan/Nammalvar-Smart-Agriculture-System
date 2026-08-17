@@ -77,7 +77,10 @@ npm run dev
 
 ## 📸 Screenshots
 
-(Add screenshots of Login, Marketplace, Dashboard, AI modules here.)
+<img width="1365" height="638" alt="image" src="https://github.com/user-attachments/assets/8db571a5-70f8-48e2-b2a9-17ed07fa17a7" />
+<img width="1365" height="720" alt="Screenshot 2026-08-17 132250" src="https://github.com/user-attachments/assets/afa963a4-1be1-4c0a-a647-bf7371c2606b" />
+
+
 
 ## 📌 Future Enhancements
 
@@ -91,6 +94,6 @@ npm run dev
 
 **Kalaiyarasan S**
 
-B.E. Computer Science and Engineering
+B.Tech INFORMATION TECHNOLOGY
 
-Smart Agriculture System – Final Year Project
+Smart Agriculture System 
